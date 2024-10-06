@@ -20,7 +20,14 @@ jobs:
         username: root
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
-          cd /root/wanesni_app || exit 1
-          git pull origin master || exit 1
-          pm2 restart directus || exit 1
-          pm2 logs directus
+          echo "Navigating to the project directory..."
+          cd /root/wanesni_app || { echo "Failed to change directory"; exit 1; }
+
+          echo "Pulling the latest code from the master branch..."
+          git pull origin master || { echo "Failed to pull from Git repository"; exit 1; }
+          
+          echo "Restarting the Directus instance with PM2..."
+          pm2 restart directus || { echo "Failed to restart PM2 process"; exit 1; }
+          
+          echo "Fetching PM2 logs..."
+          pm2 logs directus || { echo "Failed to retrieve PM2 logs"; exit 1; }

@@ -13,15 +13,13 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v4  # Updated to the latest version
 
-    - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.5.3
+    - name: Deploy to VPS using SSH
+      uses: appleboy/ssh-action@master
       with:
-        ssh-private-key: ${{ secrets.VPS_SSH_KEY }}  # Use the SSH key without a passphrase
-
-    - name: Deploy to VPS
-      run: |
-        ssh -o StrictHostKeyChecking=no root@109.199.103.20 '
-        cd /root/wanesni.live &&
-        git pull origin master &&
-        pm2 restart directus
-        '
+        host: ${{ secrets.VPS_IP }}
+        username: root
+        key: ${{ secrets.VPS_SSH_KEY }}
+        script: |
+          cd /root/wanesni.live &&
+          git pull origin master &&
+          pm2 restart directus

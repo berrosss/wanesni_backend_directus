@@ -20,7 +20,7 @@ jobs:
         username: root
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
-          cd /root/wanesni.live || exit 1
+          cd /root/wanesni_app || exit 1
           git pull origin master || exit 1
           npm install || exit 1
           pm2 restart directus || exit 1

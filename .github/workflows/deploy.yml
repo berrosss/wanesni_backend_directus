@@ -15,7 +15,7 @@ jobs:
 
     - name: Deploy to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no root@your_vps_ip '
+        ssh -o StrictHostKeyChecking=no root@109.199.103.20 '
         cd /var/root/wanesni.live &&
         git pull origin master &&
         npm install &&

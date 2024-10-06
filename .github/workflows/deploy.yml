@@ -1,0 +1,23 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main  # Specify which branch triggers the deployment
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+
+    - name: Deploy to VPS
+      run: |
+        ssh -o StrictHostKeyChecking=no root@your_vps_ip '
+        cd /var/root/wanesni.live &&
+        git pull origin master &&
+        npm install &&
+        pm2 restart directus
+        '

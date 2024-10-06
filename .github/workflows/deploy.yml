@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - main  # Specify which branch triggers the deployment
+      - master  # Specify which branch triggers the deployment
 
 jobs:
   deploy:

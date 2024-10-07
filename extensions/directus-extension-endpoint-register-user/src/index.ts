@@ -43,6 +43,7 @@ function isValidMap(obj: any) {
     "role",
     "password",
     "user_type",
+    "galleries",
   ];
   for (const field of requiredFields) {
     if (!(field in obj) || obj[field] === "") {

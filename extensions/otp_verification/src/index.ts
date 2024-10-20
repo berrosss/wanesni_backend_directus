@@ -9,7 +9,7 @@ export default defineEndpoint((router, context) => {
         schema,
         accountability: {
           ..._req.accountability,
-          admin: false,
+          admin: true,
           role: "364b72a5-6d56-4039-aaa2-a5b5ac255784",
         },
       });

@@ -26,6 +26,7 @@ jobs:
           echo "Pulling the latest code from the master branch..."
           git pull origin master || { echo "Failed to pull from Git repository"; exit 1; }
           
-          echo "Restarting the Directus instance with PM2..."
+          echo "Delete all pm2 instances..."
           pm2 delete all || { echo "Failed to restart PM2 process"; exit 1; }
+          echo "Start the Directus instance with PM2..."
           pm2 start npx --name directus -- directus start || { echo "Failed to start PM2 process"; exit 1; }

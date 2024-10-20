@@ -21,7 +21,7 @@ export default defineEndpoint((router, context) => {
         return res.status(400).send({
           errors: [
             {
-              message: "Payload email and code are required 1",
+              message: "Payload email and code are required 2",
               extensions: {
                 code: "BAD_REQUEST",
               },

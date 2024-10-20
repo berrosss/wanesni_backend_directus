@@ -3,10 +3,10 @@ import { defineEndpoint } from "@directus/extensions-sdk";
 export default defineEndpoint((router, context) => {
   router.post("/", async (_req: any, res: any) => {
       const { services, getSchema } = context;
-      const { UsersService, MailService } = services;
+      // const { UsersService, MailService } = services;
       const schema = await getSchema();
-      const usersService = new UsersService({ schema });
-      const mailService = new MailService({ schema });
+      // const usersService = new UsersService({ schema });
+      // const mailService = new MailService({ schema });
 
       const { email, code } = _req.body;
 

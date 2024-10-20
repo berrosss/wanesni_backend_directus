@@ -30,3 +30,9 @@ jobs:
           pm2 delete all || { echo "Failed to restart PM2 process"; exit 1; }
           echo "Start the Directus instance with PM2..."
           pm2 start npx --name directus -- directus start || { echo "Failed to start PM2 process"; exit 1; }
+          echo "redirect to otp extension..."
+          cd /root/wanesni_app/extensions/directus-extension-endpoint-otp-verification || { echo "Failed to change directory"; exit 1; }
+          npm run build --watch
+          echo "redirect to register extension..."
+          cd /root/wanesni_app/extensions/directus-extension-endpoint-register-user || { echo "Failed to change directory"; exit 1; }
+          npm run build --watch

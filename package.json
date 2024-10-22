@@ -12,7 +12,6 @@
   "description": "",
   "dependencies": {
     "directus": "^11.1.0",
-    "directus-extension-seo": "^1.5.11",
     "mysql2": "^3.11.3"
   }
 }

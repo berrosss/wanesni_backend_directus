@@ -55,7 +55,7 @@ export default defineEndpoint((router, context) => {
           to: `${email}`,
           subject: "WANESNI EMAIL VERIFICATION",
           template: {
-            name: '../../otp-email-template',
+            name: 'otp-email-template',
             data: {
               code: `${code}`,
             },

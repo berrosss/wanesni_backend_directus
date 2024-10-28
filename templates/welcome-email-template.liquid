@@ -1,33 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <style>
-    body {
-      background-color: blue;
-      color: white;
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      margin: 50px auto;
-    }
-    .title {
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .content {
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #f48fb1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+        .cta-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #ec407a;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .cta-button:hover {
+            background-color: #d81b60;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fce4ec;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="title"> WELCOME </div>
-    <div class="content">Your are welcome</div>
-  </div>
+    <div class="email-container">
+        <div class="header">
+            <h1>Welcome, {{ customer.first_name }}!</h1>
+        </div>
+        <div class="content">
+            <p>Hi {{ customer.first_name }},</p>
+            <p>Thank you for joining us! We're thrilled to have you on board. Get ready to explore all the latest updates, news, and exclusive content we've prepared just for you.</p>
+            <a href="{{ shop.url }}" class="cta-button">Get Started</a>
+        </div>
+        <div class="footer">
+            <p>If you have any questions, feel free to reply to this email. We're here to help!</p>
+            <p>Cheers,<br>The {{ shop.name }} Team</p>
+        </div>
+    </div>
 </body>
 </html>

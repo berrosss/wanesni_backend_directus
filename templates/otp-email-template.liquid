@@ -1,75 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OTP Code Email</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    .email-container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #ffffff;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-    }
-    .header {
-      text-align: center;
-      padding: 20px 0;
-      color: #4a90e2;
-    }
-    .header h1 {
-      font-size: 24px;
-      margin: 0;
-    }
-    .content {
-      text-align: center;
-      padding: 20px;
-    }
-    .otp-code {
-      display: inline-block;
-      font-size: 32px;
-      font-weight: bold;
-      letter-spacing: 5px;
-      padding: 15px 25px;
-      color: #ffffff;
-      background-color: #4a90e2;
-      border-radius: 8px;
-      margin: 20px 0;
-    }
-    .instructions {
-      font-size: 16px;
-      color: #555;
-    }
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      color: #888;
-      margin-top: 30px;
-    }
-  </style>
-</head>
-<body>
-  <div class="email-container">
-    <div class="header">
-      <h1>Email Verification</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <title>OTP Code Email</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+      }
+      .logo {
+        padding: 15px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+      }
+      .logo span {
+        font-family: "Righteous", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: lowercase;
+        font-size: 30px;
+        color: black;
+      }
+      .header {
+        text-align: center;
+        padding: 20px 0;
+        background-image: linear-gradient(to right, #6b5bff, #d5006d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .header h1 {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 0;
+      }
+      .content {
+        text-align: center;
+        padding: 20px;
+        font-weight: 500;
+        color: black;
+      }
+      .otp-code {
+        display: inline-block;
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 5px;
+        padding: 15px 25px;
+        color: #ffffff;
+        background-image: linear-gradient(to right, #6b5bff, #d5006d);
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+      .instructions {
+        font-size: 16px;
+        color: #555;
+        font-weight: 500;
+        color: black;
+      }
+      .footer {
+        text-align: center;
+        font-size: 12px;
+        color: #888;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="logo">
+        <img
+          src="https://wanesni.live/assets/7ed26f6d-dcac-40cf-9f69-631337eda2d6?cache-buster=2024-10-27T14:55:43.000Z&key=system-large-contain"
+          width="35"
+          alt="Wanesni Logo"
+        />
+        <span>Wanesni</span>
+      </div>
+      <div class="header">
+        <h1>Email Verification</h1>
+      </div>
+      <div class="content">
+        <p>Hello,</p>
+        <p>
+          Thank you for choosing Wanesni.. Use this OTP to complete your Sign Up
+          procedures and verify your account on Wanesni.
+        </p>
+        <div class="otp-code">{{ code }}</div>
+        <p class="instructions">
+          Remember, Never share this OTP with anyone, not even if Wanesni ask to
+          you.
+        </p>
+      </div>
+      <div class="footer">
+        <p>&copy; 2024 Menara Technology Bilgisayer. All rights reserved.</p>
+      </div>
     </div>
-    <div class="content">
-      <p>Hello, </p>
-      <p>We received a request to verify your email address. Please use the OTP code below to complete the process:</p>
-      <div class="otp-code">{{ code }}</div>
-      <p class="instructions">This code will expire in 10 minutes. If you did not request this, please ignore this email.</p>
-    </div>
-    <div class="footer">
-      <p>&copy; 2024 Your Company. All rights reserved.</p>
-    </div>
-  </div>
-</body>
+  </body>
 </html>

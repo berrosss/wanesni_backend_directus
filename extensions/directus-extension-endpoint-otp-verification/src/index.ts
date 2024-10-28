@@ -18,16 +18,30 @@ export default defineEndpoint((router, context) => {
       const { email, code } = _req.body;
 
       if (!email || !code) {
-        return res.status(400).send({
-          errors: [
-            {
-              message: "Payload email and code are required 8",
-              extensions: {
-                code: "BAD_REQUEST",
+          return res.status(400).send({
+            errors: [
+              {
+                message: "Payload email and code are required 6",
+                extensions: {
+                  code: "BAD_REQUEST",
+                },
               },
-            },
-          ],
-        });
+            ],
+          });
+      } else {
+        const isSixDigitInt = /^\d{6}$/.test(code);  
+        if (!isSixDigitInt) {
+            return res.status(400).send({
+                errors: [
+                    {
+                        message: "Code must be a 6-digit integer",
+                        extensions: {
+                            code: "BAD_REQUEST",
+                        },
+                    },
+                ],
+            });
+        } 
       }
 
       try {
